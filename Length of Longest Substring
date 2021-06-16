@@ -1,0 +1,21 @@
+int longestUniqueSubsttr(string s){
+        int cnt=0;int m=0;int cnt1=0;unordered_map<char,int>mp;
+        for(int i=0;i<s.length();i++)
+        {
+            if(mp[s[i]]>cnt1)
+            {
+                
+                m=max(cnt-cnt1,m);
+                cnt1=mp[s[i]];
+                
+            }
+           
+            cnt++;
+            mp[s[i]]=cnt;
+        
+        }
+          
+          m=max(cnt-cnt1,m);
+          return m;
+        
+    }
