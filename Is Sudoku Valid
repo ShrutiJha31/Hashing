@@ -1,0 +1,28 @@
+ int isValid(vector<vector<int>> mat){
+        unordered_map<int,int>row,col,box;
+        for(int i=0;i<9;i++)
+        {
+            for(int j=0;j<9;j++)
+            {
+                if(mat[i][j]!=0)
+                {
+                    int rowval=i*10+mat[i][j];
+                    if(row[rowval]>0)
+                    return 0;
+                    row[rowval]=1;
+                    int colval=j*10+mat[i][j];
+                    if(col[colval]>0)
+                    return 0;
+                    col[colval]=1;
+                    int k=(i/3)*3+j/3;
+                     int boxval=k*10+mat[i][j];
+                    if(box[boxval]>0)
+                    return 0;
+                    box[boxval]=1;
+                    
+                    
+                }
+            }
+        }
+        return 1;
+    }
